@@ -1,47 +1,146 @@
-
+/* 
 * {
   box-sizing: border-box;
-}
-.input-container {
-  max-width: 500px;
-  margin: auto;
-  padding: 10px;
-}
+} 
 
-
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #f0f0f0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 input {
     padding: 5px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    margin: 3px 20px;
 }
 
 label {
-  display: block;
   font-size: 20px;
   margin-bottom: 5px;
 }
 
-button {
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  color: white;
-  border: 1px solid black;
-  background-color: green;
-  cursor: pointer;
+button{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
 }
-
-button:hover {
+button:hover{
+	background: #6d44b8;
+}
+ */
+ body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
   background-color: #f0f0f0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.alert {
-  background-color: #f44336;
+ .form-box {
+  max-width: 1000px;
+  background: #f1f7fe;
+  overflow: hidden;
+  border-radius: 16px;
+  color: #010101;
+  width: 400px;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+  gap: 16px;
+  text-align: center;
+}
+
+/*Form text*/
+.title {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+/*Inputs box*/
+.form-container {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #fff;
+  margin: 1rem 0 .5rem;
+  width: 100%;
+}
+
+.input {
+  background: none;
+  border: 0;
+  outline: 0;
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  font-size: .9rem;
+  padding: 8px 15px;
+  text-align: left;
+  direction: ltr;
+}
+
+.form-section {
+  padding: 16px;
+  font-size: .85rem;
+  background-color: #e0ecfb;
+  box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+}
+
+.form-section a {
+  font-weight: bold;
+  color: #0066ff;
+  transition: color .3s ease;
+}
+
+.form-section a:hover {
+  color: #005ce6;
+  text-decoration: underline;
+}
+
+/*Button*/
+.form button {
+  background-color: #0066ff;
   color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0;
+  border: 0;
+  border-radius: 24px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.form button:hover {
+  background-color: #005ce6;
 }

@@ -47,24 +47,26 @@ function App() {
   }
 
   return (
-    <div className='input-container'>
-      <h1>Date Time Checker</h1>
-      <div>
-        <label>Day: </label>
-        <input type='text' value={day} onChange={(e) => setDay(e.target.value)} />
-      </div>
-      <div>
-        <label>Month</label>
-        <input type='text' value={month} onChange={(e) => setMonth(e.target.value)} />
+    <div className='form-box'>
+      <form className='form'>
+        <span className='title'>Date Time Checker</span>
+        <div className='form-container'>
+          {/* <label>Day </label> */}
+          <input type='text' placeholder='Day' className='input' value={day} onChange={(e) => setDay(e.target.value)} />
         </div>
-      <div>
-        <label>Year</label>
-        <input type='text' value={year} onChange={(e) => setYear(e.target.value)} />
-        </div>
-      <div>
-        <button onClick={handleCheckDate}>Check Date</button>
-        </div>
-      </div>
+        <div className='form-container'>
+          {/* <label>Month</label> */}
+          <input type='text' placeholder='Month' className='input' value={month} onChange={(e) => setMonth(e.target.value)} />
+          </div>
+        <div className='form-container'>
+          {/* <label>Year</label> */}
+          <input type='text' placeholder='Year' className='input' value={year} onChange={(e) => setYear(e.target.value)} />
+          </div>
+        <div >
+          <button onClick={handleCheckDate}>Check Date</button>
+          </div>
+      </form>
+    </div>
   );
 }
 export default App;
