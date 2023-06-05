@@ -48,10 +48,52 @@ function App() {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [isValid, setIsValid] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showResult, setShowResult] = useState(false);
+  // const [isValidDay, setIsValidDay] = useState(true);
+  // const [isValidMonth, setIsValidMonth] = useState(true);
+  // const [isValidYear, setIsValidYear] = useState(true);
 
   const handleCheckValidity = () => {
+    if (day === '' && month === '' && year === '') {
+      setErrorMessage('Please enter a complete date.')
+      setShowResult(true);
+      return;
+    }
+
+    if (day === '') {
+      setErrorMessage('Please enter a complete day.');
+      setIsValid(false);
+      setShowResult(true);
+      return;
+    }
+
+    if (month === '') {
+      setErrorMessage('Please enter a complete month.');
+      setIsValid(false);
+      setShowResult(true);
+      return;
+    }
+
+    if (year === '') {
+      setErrorMessage('Please enter a complete year.');
+      setIsValid(false);
+      setShowResult(true);
+      return;
+    }
+
     const isValid = isValidDate(parseInt(day), parseInt(month), parseInt(year));
     setIsValid(isValid);
+    setShowResult(true);
+  };
+
+  const handleClear = () => {
+    setDay('');
+    setMonth('');
+    setYear('');
+    setIsValid(null);
+    setShowResult(false);
+    setErrorMessage('');
   };
 
   return (
@@ -59,29 +101,29 @@ function App() {
       <form className='form'>
         <span className='title'>Date Time Checker</span>
         <div className='form-container'>
-          <label>
-            Day:
-            <input type="number" value={day} onChange={(e) => setDay(e.target.value)} />
-          </label><br/>
+            <input type="text" value={day} placeholder='Day' onChange={(e) => setDay(e.target.value)} />
+        </div>
+
+        <div className='form-container'>            
+            <input type="text" value={month} placeholder='Month' onChange={(e)  => setMonth(e.target.value)} />
         </div>
 
         <div className='form-container'>
-          <label>
-            Month:
-            <input type="number" value={month} onChange={(e) => setMonth(e.target.value)} />
-          </label><br/>
+            <input type="text" value={year} placeholder='Year' onChange={(e)  => setYear(e.target.value)} />
         </div>
-
-        <div className='form-container'>
-          <label>
-            Year:
-            <input type="number" value={year} onChange={(e) => setYear(e.target.value)} />
-          </label><br/>
+        <div>
+          <button type='button' onClick={handleCheckValidity} >Check</button>
+          <button type='button' onClick={handleClear} >Clear</button>
         </div>
-        <button onClick={handleCheckValidity} >Check Validity</button>
           <div className='form-container'>
-          {isValid !== null && (
+          {/* {showResult && (
             <p>{isValid ? `The date is ${day}/${month}/${year}.` : 'The date is invalid.'}</p>
+          )} */}
+          {showResult && (
+            <p>
+              {isValid ? `The date is ${day}/${month}/${year}.` 
+              : errorMessage || 'The date is invalid.'}
+            </p>  
           )}
           </div>
       </form>
