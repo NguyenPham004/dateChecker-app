@@ -55,23 +55,36 @@ function App() {
   };
 
   return (
-    <div>
-      <label>
-        Day:
-        <input type="number" value={day} onChange={(e) => setDay(e.target.value)} />
-      </label>
-      <label>
-        Month:
-        <input type="number" value={month} onChange={(e) => setMonth(e.target.value)} />
-      </label>
-      <label>
-        Year:
-        <input type="number" value={year} onChange={(e) => setYear(e.target.value)} />
-      </label>
-      <button onClick={handleCheckValidity}>Check Validity</button>
-      {isValid !== null && (
-        <p>{isValid ? 'The date is valid.' : 'The date is invalid.'}</p>
-      )}
+    <div className='form-box'>
+      <form className='form'>
+        <span className='title'>Date Time Checker</span>
+        <div className='form-container'>
+          <label>
+            Day:
+            <input type="number" value={day} onChange={(e) => setDay(e.target.value)} />
+          </label><br/>
+        </div>
+
+        <div className='form-container'>
+          <label>
+            Month:
+            <input type="number" value={month} onChange={(e) => setMonth(e.target.value)} />
+          </label><br/>
+        </div>
+
+        <div className='form-container'>
+          <label>
+            Year:
+            <input type="number" value={year} onChange={(e) => setYear(e.target.value)} />
+          </label><br/>
+        </div>
+        <button onClick={handleCheckValidity} >Check Validity</button>
+          <div className='form-container'>
+          {isValid !== null && (
+            <p>{isValid ? `The date is ${day}/${month}/${year}.` : 'The date is invalid.'}</p>
+          )}
+          </div>
+      </form>
     </div>
   );
 }

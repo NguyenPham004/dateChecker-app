@@ -1,4 +1,4 @@
-.alert {
+/* .alert {
   padding: 10px;
   margin-top: 10px;
   color: #fff;
@@ -12,11 +12,11 @@
 
 .error {
   background-color: red;
-}
+} */
+ 
 
 
-
-/* 
+ 
  body{
   margin: 0;
   padding: 0;
@@ -161,4 +161,5 @@ button:hover {
   margin-top: 10px;
   color: red;
   font-size: 14px;
-} */ 
+}
+*/
