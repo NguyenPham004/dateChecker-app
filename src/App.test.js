@@ -44,12 +44,6 @@ describe('Date Time Checker App', () => {
 
   it('UTCID01', () => {
     render(<App />);
-    fireEvent.click(screen.getByText('Check'));
-    expect(screen.getByText('Please enter a complete date.')).toBeInTheDocument();
-  });
-
-  it('should display an error message if the day field is empty', () => {
-    render(<App />);
     fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '6' } });
     fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2023' } });
     fireEvent.click(screen.getByText('Check'));

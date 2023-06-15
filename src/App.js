@@ -50,9 +50,6 @@ function App() {
   const [isValid, setIsValid] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [showResult, setShowResult] = useState(false);
-  // const [isValidDay, setIsValidDay] = useState(true);
-  // const [isValidMonth, setIsValidMonth] = useState(true);
-  // const [isValidYear, setIsValidYear] = useState(true);
 
   const handleCheckValidity = () => {
     if (day === '' && month === '' && year === '') {
@@ -116,9 +113,6 @@ function App() {
           <button type='button' onClick={handleClear} >Clear</button>
         </div>
           <div className='form-container'>
-          {/* {showResult && (
-            <p>{isValid ? `The date is ${day}/${month}/${year}.` : 'The date is invalid.'}</p>
-          )} */}
           {showResult && (
             <p>
               {isValid ? `The date is valid.` 
