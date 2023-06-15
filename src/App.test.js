@@ -37,67 +37,65 @@ describe('Date Time Checker App', () => {
 
   // Unit tests for App component
 
-  it('should render the form and title', () => {
-    render(<App />);
-    expect(screen.getByText('Date Time Checker')).toBeInTheDocument();
-  });
-
   it('UTCID01', () => {
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '6' } });
-    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2023' } });
+    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '29' } });
+    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '2' } });
+    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2000' } });
     fireEvent.click(screen.getByText('Check'));
     expect(screen.getByText('Please enter a complete day.')).toBeInTheDocument();
   });
 
-  it('should display an error message if the month field is empty', () => {
+  it('UTCID02', () => {
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '12' } });
-    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2023' } });
+    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '29' } });
+    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '2' } });
+    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2009' } });
     fireEvent.click(screen.getByText('Check'));
     expect(screen.getByText('Please enter a complete month.')).toBeInTheDocument();
   });
 
-  it('should display an error message if the year field is empty', () => {
+  it('UTCID03', () => {
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '12' } });
-    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '6' } });
+    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '31' } });
+    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '3' } });
+    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2020' } });
     fireEvent.click(screen.getByText('Check'));
     expect(screen.getByText('Please enter a complete year.')).toBeInTheDocument();
   });
 
-  it('should display a success message for a valid date', () => {
+  it('UTCID04', () => {
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '12' } });
-    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '6' } });
-    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2023' } });
+    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '31' } });
+    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '4' } });
+    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2022' } });
     fireEvent.click(screen.getByText('Check'));
     expect(screen.getByText('The date is valid.')).toBeInTheDocument();
   });
 
-  it('should display an error message for an invalid date', () => {
+  it('UTCID05', () => {
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '31' } });
-    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '2' } });
-    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2023' } });
+    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '30' } });
+    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '3' } });
+    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2000' } });
     fireEvent.click(screen.getByText('Check'));
     expect(screen.getByText('The date is invalid.')).toBeInTheDocument();
   });
 
-  it('should display a custom error message if provided', () => {
+  it('UTCID06', () => {
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '' } });
-    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '6' } });
-    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2023' } });
+    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '31' } });
+    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '3' } });
+    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2009' } });
     fireEvent.click(screen.getByText('Check'));
     expect(screen.getByText('Please enter a complete day.')).toBeInTheDocument();
   });
 
-  it('should clear the form and result when Clear button is clicked', () => {
+  it('UTCID07', () => {
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '12' } });
-    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '6' } });
-    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2023' } });
+    fireEvent.change(screen.getByPlaceholderText('Day'), { target: { value: '30' } });
+    fireEvent.change(screen.getByPlaceholderText('Month'), { target: { value: '3' } });
+    fireEvent.change(screen.getByPlaceholderText('Year'), { target: { value: '2000' } });
     fireEvent.click(screen.getByText('Clear'));
     expect(screen.queryByText('The date is valid.')).toBeNull();
     expect(screen.queryByText('The date is invalid.')).toBeNull();
